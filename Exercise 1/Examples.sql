@@ -45,3 +45,41 @@ ADD CONSTRAINT PK_Students PRIMARY KEY(FNum)
 	DROP DATABASE My_DB
 	GO
 */
+
+--Inserting
+INSERT INTO Students(Fnum, [Name], Gender)
+VALUES('001', 'Ivan Ivanov', Default)
+
+--Inserting in All Columns
+INSERT INTO Students
+VALUES('002', 'Martina Ivanova', NULL, 'F', 'm@abv.bg'),
+	  ('003', 'Petar Ivanov', '089545566', 'M', 'p@abv.bg'),
+	  ('004', 'Toni Todorov', '089967676', 'M', 't@gmail.com')
+
+SELECT * FROM Students
+
+--Updating
+UPDATE Students
+SET Gender = 'M', Phone = '+359 656 6666'
+WHERE Fnum = '001'
+
+--Deleting
+DELETE FROM Students
+WHERE Fnum = '001'
+
+
+SELECT * FROM Students
+WHERE Phone IS NULL
+
+SELECT * FROM Students
+WHERE Phone LIKE '089%'
+
+SELECT * FROM Students
+ORDER BY [Name] DESC
+
+SELECT COUNT(Fnum) AS [Count], Gender FROM Students
+GROUP BY Gender
+
+SELECT COUNT(Fnum) AS [Count], Gender FROM Students
+GROUP BY Gender
+HAVING COUNT(Fnum) > 1
