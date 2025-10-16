@@ -2,8 +2,7 @@
 CREATE DATABASE My_DB
 GO
 USE My_DB
-GO
-
+GO	
 
 --Creating Table
 CREATE TABLE Students
@@ -30,7 +29,7 @@ DROP COLUMN [Address]
 
 --Dropping Constraint
 ALTER TABLE Students
-DROP CONSTRAINT PK__Students__9238BA09268C966F
+DROP CONSTRAINT PK__Students__9238BA0946D8C407
 
 --Adding Constraint
 ALTER TABLE Students
