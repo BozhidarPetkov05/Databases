@@ -78,9 +78,24 @@
 --Изведи id на държавите, в които има
 --клиенти и в същото време няма отдели на фирмата.
 
+	select COUNTRY_ID from COUNTRIES
+	except
+	select COUNTRY_ID from DEPARTMENTS
+
 /*Задача 4-7. 
 --Да се изведат собствени имена на клиенти, 
 които не се срещат сред тези на служители.*/
 
+	select TRIM(FNAME) from CUSTOMERS
+	except
+	select TRIM(FNAME) from EMPLOYEES
+
  --Изведи идентификаторите на всички продукти, 
  --които не са поръчвани (по поне 2 начина).
+
+	select PRODUCT_ID from PRODUCTS
+	except
+	select PRODUCT_ID from ORDER_ITEMS
+
+	select PRODUCT_ID from PRODUCTS
+	where PRODUCT_ID not in (SELECT PRODUCT_ID from ORDER_ITEMS)
